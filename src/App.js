@@ -1,17 +1,24 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import Loader from './shared/components/Loader/Loader.component';
 import AppRoutes from "./routes/AppRoutes";
+import { loaderService } from "./app/api/loaderService"; // Import the service
 
-
-function App() {
-  const dispatch = useDispatch();
+export default function App() {
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    //const token = localStorage.getItem("tokenReactJs");
-  }, [dispatch]);
+    // Subscribe to the global loader state updates
+    loaderService.subscribe((loadingStatus) => {
+      setIsLoading(loadingStatus);
+    });
+  }, []);
 
-  return <AppRoutes />;
+  return (
+    <>
+      {/* Automatically overlays any active page/route */}
+      <Loader isLoading={isLoading} />
+      <AppRoutes />
+    </>
+  );
 }
-
-export default App;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function UserList() {
+function ProductList() {
   return (
     <div className="container">
       <h1>Home Page</h1>
@@ -13,11 +13,11 @@ function UserList() {
 
       <ul>
         <li>
-          <Link to="/user/manageuser">Add new user</Link>
+          <Link to="/product/manageproduct">Add new product</Link>
         </li>
       </ul>
     </div>
   );
 }
 
-export default UserList;
+export default ProductList;

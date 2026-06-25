@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ManageUser() {
+function ManageProduct() {
   return (
     <div className="container">
       <h1>Home Page</h1>
@@ -13,11 +13,11 @@ function ManageUser() {
 
       <ul>
         <li>
-          <Link to="/user/users">All Users</Link>
+          <Link to="/user/products">All Products</Link>
         </li>
       </ul>
     </div>
   );
 }
 
-export default ManageUser;
+export default ManageProduct;
