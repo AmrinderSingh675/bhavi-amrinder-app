@@ -1,10 +1,8 @@
-// src/app/api/loaderService.js
 
 let loaderCallback = null;
-let activeRequests = 0; // Tracks concurrent API calls so the loader doesn't disappear too early
+let activeRequests = 0; 
 
 export const loaderService = {
-  // React will use this to listen for changes
   subscribe(callback) {
     loaderCallback = callback;
   },
@@ -19,7 +17,7 @@ export const loaderService = {
   hide() {
     activeRequests--;
     if (activeRequests <= 0) {
-      activeRequests = 0; // Safety guard
+      activeRequests = 0; 
       if (loaderCallback) loaderCallback(false);
     }
   }

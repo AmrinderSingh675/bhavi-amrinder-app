@@ -43,7 +43,6 @@ export default function MainLayout({ children, user, onLogout }) {
 </div>
 
       <div className="d-flex pt-5 mt-2 flex-grow-1">
-        {/* Responsive Sidebar */}
         <div className="d-none d-md-block">
           <Sider />
         </div>

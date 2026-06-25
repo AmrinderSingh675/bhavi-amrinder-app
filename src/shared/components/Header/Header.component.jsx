@@ -6,7 +6,6 @@ export default function Header({ user, onLogout }) {
       className="navbar navbar-expand navbar-dark bg-dark px-3 fixed-top"
       style={{ height: '60px' }}
     >
-      {/* Mobile Menu Button */}
       <button
         className="btn btn-outline-light d-md-none me-2"
         type="button"

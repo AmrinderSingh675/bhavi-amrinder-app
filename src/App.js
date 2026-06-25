@@ -8,7 +8,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // Subscribe to the global loader state updates
+    
     loaderService.subscribe((loadingStatus) => {
       setIsLoading(loadingStatus);
     });
@@ -16,7 +16,6 @@ export default function App() {
 
   return (
     <>
-      {/* Automatically overlays any active page/route */}
       <Loader isLoading={isLoading} />
       <AppRoutes />
     </>
