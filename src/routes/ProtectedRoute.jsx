@@ -1,17 +1,18 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { tokenService } from "../shared/services/tokenService";
+import MainLayout from "../shared/components/layouts/MainLayout/MainLayout.component";
 
 function ProtectedRoute() {
-  const { isAuthenticated, isLoading } =
-    useSelector((state) => state.auth);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const hasToken = !!tokenService.getToken();
 
-  return isAuthenticated
-    ? <Outlet />
-    : <Navigate to="/login" replace />;
+ return hasToken ? (
+    <MainLayout>
+      <Outlet />
+    </MainLayout>
+  ) : (
+    <Navigate to="/login" replace />
+  );
 }
 
 export default ProtectedRoute;

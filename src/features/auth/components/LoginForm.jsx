@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { validateLogin } from "../validations/authValidation";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const { login, loading, error } = useAuth();
+  const { login, loading } = useAuth();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     email: "",
@@ -27,18 +29,15 @@ const LoginForm = () => {
       return;
     }
 
-    await login(form);
+    const isSuccess = await login(form);
+    if (isSuccess) {
+      navigate("/dashboard"); 
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-
-      {error && (
-        <div className="alert alert-danger">
-          {error}
-        </div>
-      )}
-
+   
       <div className="mb-3">
         <label>Email</label>
 
