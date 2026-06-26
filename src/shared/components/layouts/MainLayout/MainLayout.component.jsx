@@ -4,10 +4,10 @@ import Sider from '../../Sider/Sider.component';
 import './MainLayout.component.css';
 
 
-export default function MainLayout({ children, user, onLogout }) {
+export default function MainLayout({ children, onLogout }) {
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Header user={user} onLogout={onLogout} />
+      <Header onLogout={onLogout} />
 
 <div
   className="offcanvas offcanvas-start"
@@ -47,11 +47,9 @@ export default function MainLayout({ children, user, onLogout }) {
           <Sider />
         </div>
 
-        {/* Dynamic Content Frame */}
-        {/* Fixed: Used a fluid Bootstrap responsive margin class 'ms-md-5' or custom style to avoid layout shift */}
         <main className="main-content flex-grow-1 p-4 d-flex flex-column bg-light">
           <div className="container-fluid flex-grow-1">
-            {children} {/* This is where Dashboard content will be injected */}
+            {children}
           </div>
         </main>
       </div>

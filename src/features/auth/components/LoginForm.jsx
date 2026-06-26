@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const { login, loading } = useAuth();
+  const { loginUser } = useAuth();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -12,24 +12,20 @@ const LoginForm = () => {
     password: ""
   });
 
-  const [validationErrors, setValidationErrors] =
-    useState({});
+  const [validationErrors, setValidationErrors] = useState({});
 
   const handleSubmit = async (e) => {
-    console.log("Submit clicked");
+    //console.log("Submit clicked");
     e.preventDefault();
-    debugger;
-    const errors =
-      validateLogin(form);
+    //debugger;
+    const errors = validateLogin(form);
 
-    if (
-      Object.keys(errors).length > 0
-    ) {
+    if (Object.keys(errors).length > 0) {
       setValidationErrors(errors);
       return;
     }
 
-    const isSuccess = await login(form);
+    const isSuccess = await loginUser(form);
     if (isSuccess) {
       navigate("/dashboard"); 
     }
@@ -41,17 +37,8 @@ const LoginForm = () => {
       <div className="mb-3">
         <label>Email</label>
 
-        <input
-          type="email"
-          className="form-control"
-          value={form.email}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              email: e.target.value
-            })
-          }
-        />
+        <input type="email" className="form-control" value={form.email}
+          onChange={(e) => setForm({...form, email: e.target.value })}/>
 
         <small className="text-danger">
           {validationErrors.email}
@@ -61,30 +48,16 @@ const LoginForm = () => {
       <div className="mb-3">
         <label>Password</label>
 
-        <input
-          type="password"
-          className="form-control"
-          value={form.password}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              password: e.target.value
-            })
-          }
-        />
+        <input type="password" className="form-control" value={form.password}
+          onChange={(e) => setForm({...form, password: e.target.value})} />
 
         <small className="text-danger">
           {validationErrors.password}
         </small>
       </div>
 
-      <button
-        className="btn btn-primary w-100"
-        disabled={loading}
-      >
-        {loading
-          ? "Signing In..."
-          : "Sign In"}
+      <button className="btn btn-primary w-100">
+        { "Sign In"}
       </button>
     </form>
   );

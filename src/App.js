@@ -14,8 +14,6 @@ export default function App() {
 
   useEffect(() => {
     loaderService.subscribe((loadingStatus) => setIsLoading(loadingStatus));
-    
-    // Subscribe to toast alerts
     toastService.subscribe((toastStatus) => setToast(toastStatus));
   }, []);
 

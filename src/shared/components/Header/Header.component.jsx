@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from "react-redux";
 
-export default function Header({ user, onLogout }) {
+export default function Header({ onLogout }) {
+  
+  const user = useSelector((state) => state.auth.user);
   return (
     <nav
       className="navbar navbar-expand navbar-dark bg-dark px-3 fixed-top"
@@ -24,10 +27,7 @@ export default function Header({ user, onLogout }) {
           Welcome, <strong>{user?.username || 'User'}</strong>
         </span>
 
-        <button
-          onClick={onLogout}
-          className="btn btn-outline-danger btn-sm"
-        >
+        <button onClick={onLogout} className="btn btn-outline-danger btn-sm">
           Logout
         </button>
       </div>
