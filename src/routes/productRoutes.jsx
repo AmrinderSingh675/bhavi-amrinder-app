@@ -1,18 +1,23 @@
 import { lazy } from "react";
-const ProductList = lazy(() =>
-  import("../features/products/pages/products")
+
+const ProductListPage = lazy(() =>
+  import("../features/products/pages/ProductlListPage")
 );
-const ManageProduct = lazy(() =>
-  import("../features/products/pages/manageproduct")
+const ProductPage = lazy(() =>
+  import("../features/products/pages/ProductPage")
 );
 const productRoutes = [
   {
-    path: "/product/products",
-    element: <ProductList />
+    path: "/products",
+    element: <ProductListPage />
   },
   {
-    path: "/product/manageproduct",
-    element: <ManageProduct />
+    path: "/product/0?",
+    element: <ProductPage />
+  },
+  {
+    path: "/product/:id",
+    element: <ProductPage />
   }
 ];
 

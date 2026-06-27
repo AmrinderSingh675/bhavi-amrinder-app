@@ -31,8 +31,8 @@ export default function MainLayout({ children, onLogout }) {
       <a href="#dashboard" className="list-group-item list-group-item-action">
         Dashboard
       </a>
-      <a href="#profile" className="list-group-item list-group-item-action">
-        Profile
+      <a href="/product/product" className="list-group-item list-group-item-action">
+        Products
       </a>
 
       <a href="#settings" className="list-group-item list-group-item-action">

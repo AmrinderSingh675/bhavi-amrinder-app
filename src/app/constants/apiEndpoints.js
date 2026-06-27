@@ -4,11 +4,11 @@ export const API_ENDPOINTS = {
     REGISTER: "auth/register",
   },
 
-  USERS: {
-    GET_ALL: "users",
-    GET_BY_ID: (id) => `users/${id}`,
-    CREATE: "users",
-    UPDATE: (id) => `users/${id}`,
-    DELETE: (id) => `users/${id}`,
+  PRODUCTS: {
+    GET_ALL: "/product",
+    GET_BY_ID: (id) => `/product/${id}`,
+    CREATE: "/product",
+    UPDATE: (id) => `/product/${id}`,
+    DELETE: (id) => `/product/${id}`,
   },
 };
